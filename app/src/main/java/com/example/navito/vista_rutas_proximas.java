@@ -2,15 +2,13 @@ package com.example.navito;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class VistaRutaActiva extends AppCompatActivity {
-    ListView lista,lista2;
-    Button rutasproximas;
+public class vista_rutas_proximas extends AppCompatActivity {
+    ListView lista2;
+
     String [][] datos = {
             {"Ruta 69","1RA. ETAPA U.H.","Centro"},
             {"Ruta 72","COL. MONTE ALBAN","Central de abastos"},
@@ -22,20 +20,10 @@ public class VistaRutaActiva extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vista_ruta_activa);
-        lista =(ListView)findViewById(R.id.listview1);
+        setContentView(R.layout.activity_vista_rutas_proximas);
+        lista2 =(ListView)findViewById(R.id.listview2);
         //lista2=(ListView)findViewById(R.id.listview2);;
-        lista.setAdapter(new Adaptador(this,datos));
+        lista2.setAdapter(new Adaptador(this,datos));
         //lista2.setAdapter(new Adaptador(this,datos));
-
-        rutasproximas=(Button)findViewById(R.id.idproximas);
-        rutasproximas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent rutasproximas= new Intent(VistaRutaActiva.this,vista_rutas_proximas.class);
-                startActivity(rutasproximas);
-            }
-        });
-
     }
 }
